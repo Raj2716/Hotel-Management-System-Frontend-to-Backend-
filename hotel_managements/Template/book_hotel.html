@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block main %}
+    <h2>Book Hotel: {{ hotel.name }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <div> 
+        <label for="check_in">Check-in Date:</label>
+        <input type="date" id="check_in" name="check_in">
+    </div>
+    <div>
+        <label for="check_out">Check-out Date:</label>
+        <input type="date" id="check_out" name="check_out">
+    </div>
+    <div>
+        <label for="num_members">Number of Members:</label>
+        <input type="number" id="num_members" name="num_members">
+    </div>
+    <p>Choose the amenities you needed :</p>
+    {% for amenity in amenities_list %}
+      <input type="checkbox" id="amenity{{ forloop.counter }}" name="amenities" value="{{ amenity }}">
+      <label for="amenity{{ forloop.counter }}">{{ amenity }}</label><br>
+    {% endfor %}
+    <br>
+    <button type="submit">Book Hotel</button>
+
+</form>
+<br><br>
+<a href="{% url 'hotel:user_dashboard' %}">Return To DashBoard</a>
+    {% endblock %}

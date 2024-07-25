@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<table>
+    <tr>
+    <th>Hotel Name</th>
+    <th>Location </th>
+    <th>Ratings</th>
+    <th>Available Rooms</th>
+    <th>Price</th>
+    <th>Amenities</th>
+    <th>Bed Type</th>
+    </tr>
+    {% for hotels in hotel %}
+    <tr>
+    <td>{{hotels.name}}</td>
+    <td>{{hotels.location}}</td>
+    <td>{{hotels.ratings}}</td>
+    <td>{{hotels.available_rooms}}</td>
+    <td>{{hotels.price}}</td>
+    <td>{{hotels.amenities}}</td>
+    <td>{{hotels.bed_type}}</td>
+    <td><a href="{% url 'hotel:updatehotel' hotels.id %}">Update</a></td>
+    <td><a href="{% url 'hotel:deletehotel' hotels.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+    <td><a href="{% url 'hotel:hotelier_dashboard' %}">Return To Dashboard</a></td>
+{% endblock %}

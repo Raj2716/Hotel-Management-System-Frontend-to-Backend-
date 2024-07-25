@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block main %}
+    <h2>Welcome to User Dashboard</h2>
+    {% if user.is_authenticated %}
+    <a href="{% url 'hotel:searchhotels' %}">Book Hotels</a>
+    <a href="{% url 'hotel:cancelbooking' %}">Cancel Booking</a>
+    <a href="{% url 'hotel:logout' %}">Logout</a>
+    {% endif %}
+    {% endblock %}

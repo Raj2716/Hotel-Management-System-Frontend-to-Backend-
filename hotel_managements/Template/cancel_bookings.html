@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block main %}
+  <h2>Cancel Booking</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% for booking in bookings %}
+      <div>
+        <p>Hotel: {{ booking.hotel.name }}</p>
+        <p>Check-in: {{ booking.check_in }}</p>
+        <p>Check-out: {{ booking.check_out }}</p>
+        <button type="submit" name="booking_id" value="{{ booking.id }}">Cancel Booking</button>
+      </div>
+    {% endfor %}
+  </form>
+  <a href="{% url 'hotel:user_dashboard' %}">Return To DashBoard</a>
+{% endblock %}

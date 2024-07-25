@@ -1,0 +1,38 @@
+<!-- view_bookings.html -->
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Bookings</h2>
+    {% if bookings_exist %}
+        <h2>Upcoming Bookings</h2>
+        {% for booking in upcoming_bookings %}
+            <div>
+                <p>Hotel: {{ booking.hotel.name }}</p>
+                <p>Location: {{ booking.hotel.location }}</p>
+                <p>Guest: {{ booking.user.name }}</p>
+                <p>Mobile Number: {{ booking.user.mobile_number }}</p>
+                <p>Check-in: {{ booking.check_in }}</p>
+                <p>Check-out: {{ booking.check_out }}</p>
+                <p>Number of Members: {{ booking.num_members }}</p>
+                <p>Total Price: {{ booking.total_price }}</p>
+            </div>
+            <hr>
+        {% endfor %}
+        <h2>Past Bookings</h2>
+        {% for booking in past_bookings %}
+            <div>
+                <p>Hotel: {{ booking.hotel.name }}</p>
+                <p>Guest: {{ booking.user.name }}</p>
+                <p>Mobile Number: {{ booking.user.mobile_number }}</p>
+                <p>Check-in: {{ booking.check_in }}</p>
+                <p>Check-out: {{ booking.check_out }}</p>
+                <p>Number of Members: {{ booking.num_members }}</p>
+                <p>Total Price: {{ booking.total_price }}</p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No bookings found for your hotels.</p>
+    {% endif %}
+    <a href="{% url 'hotel:hotelier_dashboard' %}">Return To Dashboard</a>
+{% endblock %}

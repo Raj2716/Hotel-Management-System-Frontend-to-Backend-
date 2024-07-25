@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+    <a href="{% url 'hotel:home' %}">Return To Home</a>
+    {% endblock %}

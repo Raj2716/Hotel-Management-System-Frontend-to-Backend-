@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block main %}
+    <h2>Add a New Hotel</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Hotel</button>
+</form>
+<a href="{% url 'hotel:hotelier_dashboard' %}">Return To DashBoard</a>
+{% endblock %}
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        :root {
+            --text-color: #fff;
+            --bg-color: #222;
+            --main-color: #ffa343;
+            --h1-font: 3rem;
+            --h2-font: 2rem;
+            --p-font: 1rem;
+        }
+
+        body {
+            color: var(--text-color);
+            background: var(--bg-color);
+            padding: 20px;
+        }
+
+        header {
+            padding: 20px; 
+            text-align: center;
+            background: var(--bg-color);
+            border-bottom: 2px solid var(--main-color);
+        }
+
+        header a {
+            color: var(--text-color);
+            font-size: var(--p-font);
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.5s ease;
+        }
+
+        header a:hover {
+            color: var(--main-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: var(--h1-font);
+        }
+
+        h2 {
+            font-size: var(--h2-font);
+        }
+
+        form {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: var(--main-color);
+            color: var(--bg-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--text-color);
+            color: var(--main-color);
+            border: 2px solid var(--main-color);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--main-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 1.5rem;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="1">Hotel Management System</h1>
+        <a href="{% url 'hotel:home' %}">Homes</a>
+        <a href="{% url 'hotel:register_user' %}">User Registration</a>
+        <a href="{% url 'hotel:register_hotelier' %}">Hotelier Registration</a>
+        <a href="{% url 'hotel:login_user' %}">User Login</a>
+        <a href="{% url 'hotel:login_hotelier' %}">Hotelier Login</a>
+    </header>
+    <div class="container">
+        {% block main %}
+        {% endblock %}
+    </div>
+</body>
+</html>
